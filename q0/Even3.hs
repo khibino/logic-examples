@@ -4,14 +4,14 @@ import Even2
 
 data Even = Even (EvenPrime -> EvenPrime)
 
-(<+>) :: Even -> Even -> Even
-(Even f) <+> (Even g) = Even (f . g)
-
 zero :: Even
 zero =  Even id
 
 two :: Even
 two =  Even plus2'
+
+(<+>) :: Even -> Even -> Even
+(Even f) <+> (Even g) = Even (f . g)
 
 
 evenValue :: Even -> Int
