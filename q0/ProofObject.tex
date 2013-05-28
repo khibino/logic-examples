@@ -39,26 +39,9 @@
 \begin{frame}[fragile]
 \frametitle{型とプログラム}
 あらためて型とは\verb|?|
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{型とプログラム}
-あらためて型とは\verb|?|
 \begin{itemize}
 \item { \color{red} 型とはその型を持つ値の性質を示すもの }
 \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{型とプログラム}
-
-あらためて型とは\verb|?|
-\begin{itemize}
-\item 型とはその型を持つ値の性質を示すもの
-\end{itemize}
-
-プログラムとは\verb|?|
-
 \end{frame}
 
 \begin{frame}[fragile]
@@ -76,7 +59,6 @@
 
 \end{frame}
 
-
 \begin{frame}[fragile]
 \frametitle{型とプログラム}
 
@@ -90,7 +72,46 @@
 \item 目的の値を作り出すもの
 \end{itemize}
 
-{ \color{red} 正しいプログラムは正しく型が付いた値を作り出す }
+正しいプログラムは\\正しく型が付いた値を作り出す
+\begin{itemize}
+\item { \color{red} 正しいプログラムは作り出した値の性質を証明する }
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{型とプログラム - 例 - Even0.hs}
+
+\begin{lstlisting}
+-- data Maybe a = Just a
+--              | Nothing
+
+data Even = Even' Int
+
+mayEven :: Int -> Maybe Even
+mayEven i
+  | i `rem` 2 == 0 = Just (Even' i)
+  | otherwise      = Nothing
+-- 例えば Even' は他からは隠蔽する
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{型とプログラム - 例 - Even1.hs}
+
+\begin{lstlisting}
+data Even = Double Int
+
+double :: Int -> Even
+double i = Double i
+
+mayEven :: Int -> Maybe Even
+mayEven i
+  | rm == 0   = Just (double qt)
+  | otherwise = Nothing
+  where (qt, rm) = i `quotRem` 2
+\end{lstlisting}
 
 \end{frame}
 
@@ -107,16 +128,10 @@
 \item 目的の値を作り出すもの
 \end{itemize}
 
-正しいプログラムは正しく型が付いた値を作り出す
-
-{ \color{red} 正しいプログラムは作り出した値の性質を証明する }
-
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{型とプログラム}
-
-関数とは\verb|?|
+正しいプログラムは\\正しく型が付いた値を作り出す
+\begin{itemize}
+\item 正しいプログラムは作り出した値の性質を証明する
+\end{itemize}
 
 \end{frame}
 
@@ -136,12 +151,11 @@
 関数とは\verb|?|
 \begin{itemize}
 \item 値の持つ性質から値の持つ性質を導き出す
+\item { \color{red} 関数は証明における推論規則 }
 \end{itemize}
 
-{ \color{red} 関数は証明における推論規則 }
 
 \end{frame}
-
 
 \begin{frame}[fragile]
 \frametitle{型とプログラム}
@@ -149,13 +163,19 @@
 関数とは\verb|?|
 \begin{itemize}
 \item 値の持つ性質から値の持つ性質を導き出す
+\item 関数は証明における推論規則
 \end{itemize}
-
-関数は証明における推論規則
 
 { \color{red} プログラムは推論規則の組み合わせで証明を構成する }
 
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{型とプログラム - 例 - Even2.hs}
+
+
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{具体例}
