@@ -120,6 +120,7 @@ mayEven i
  ...
  > mayEven 5
 \end{lstlisting}
+※ Tab で補完できる
 
 \end{frame}
 
@@ -259,6 +260,8 @@ two =  Even plus2'
  > plus2' (plus2' (plus2' zero'))
  > zero
  > two
+ > four
+ > six
  > four <+> six
 \end{lstlisting}
 
@@ -329,9 +332,49 @@ noString =  Nothing
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{実習}
+
+\begin{lstlisting}
+ % ghci Maybe.hs
+ > justOne
+ > justHello
+ > noInt
+ > noString
+ > justOne == justOne
+ > noInt == noString
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{値と型付け - 幽霊型 - 例 - IntUnit.hs}
 
 \begin{lstlisting}
+data Int' u  = Int' Int
+
+(<+>) :: Int' u -> Int' u -> Int' u
+Int' a <+> Int' b = Int' (a + b)
+
+data YenUnit  = Yen
+type Yen  = Int' YenUnit
+
+data GramUnit = Gram
+type Gram = Int' GramUnit
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{実習}
+
+\begin{lstlisting}
+ % ghci IntUnit.hs
+ > twentyYen
+ > :t twentyYen
+ > thirtyGram
+ > :t thirtyGram
+ > twentyYen <+> twentyYen
+ > twentyYen <+> thirtyGram
 \end{lstlisting}
 
 \end{frame}

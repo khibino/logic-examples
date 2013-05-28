@@ -1,6 +1,6 @@
 module IntUnit where
 
-data Int' u  = Int' Int
+data Int' u  = Int' Int deriving (Show, Eq)
 
 (<+>) :: Int' u -> Int' u -> Int' u
 Int' a <+> Int' b = Int' (a + b)
