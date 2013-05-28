@@ -1,5 +1,6 @@
 module Even4 where
 
+import Even2
 import Even3 
 
 four :: Even

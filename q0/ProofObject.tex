@@ -22,6 +22,7 @@
 \begin{itemize}
 \item 型とプログラム
 \item 関数と構成的プログラム
+\item 値と型付け
 \item 論理パズルの例
 \end{itemize}
 
@@ -37,6 +38,7 @@
 \begin{itemize}
 \item { \color{red} 型とプログラム }
 \item 関数と構成的プログラム
+\item 値と型付け
 \item 論理パズルの例
 \end{itemize}
 
@@ -105,6 +107,23 @@ mayEven i
 \end{frame}
 
 \begin{frame}[fragile]
+※ 画面切り替え練習
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{実習}
+
+\begin{lstlisting}
+ % ghci Even0.hs
+ ...
+ > mayEven 10
+ ...
+ > mayEven 5
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{型とプログラム - 例 - Even1.hs}
 
 検査しなくてもEvenを作るくことができる公理系の例
@@ -124,6 +143,21 @@ mayEven i
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{実習}
+
+\begin{lstlisting}
+ % ghci Even1.hs
+ ...
+ > double 5
+ ...
+ > mayEven 10
+ ...
+ > mayEven 5
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{型とプログラム - まとめ}
 
 \begin{itemize}
@@ -135,15 +169,12 @@ mayEven i
 \end{frame}
 
 \begin{frame}[fragile]
-ここまでで質問とか
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{本日の概要}
 
 \begin{itemize}
 \item 型とプログラム
 \item { \color{red} 関数と構成的プログラム }
+\item 値と型付け
 \item 論理パズルの例
 \end{itemize}
 
@@ -167,7 +198,6 @@ mayEven i
 \item 値の持つ性質から値の持つ性質を導き出す
 \item { \color{red} 関数は証明における推論規則 }
 \end{itemize}
-
 
 \end{frame}
 
@@ -221,14 +251,18 @@ two =  Even plus2'
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{関数 - 実行してみる}
+\frametitle{実習}
 
 \begin{lstlisting}
- % ghci Even4.hs
+ % ghci useEven3.hs
+ > zero'
+ > plus2' (plus2' (plus2' zero'))
+ > zero
+ > two
+ > four <+> six
 \end{lstlisting}
 
 \end{frame}
-
 
 \begin{frame}[fragile]
 \frametitle{関数}
@@ -250,6 +284,69 @@ two =  Even plus2'
 \begin{itemize}
 \item 型とプログラム
 \item 関数と構成的プログラム
+\item { \color{red} 値と型付け }
+\item 論理パズルの例
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{値と型付け}
+
+型とはその型を持つ値の性質を示すもの
+\begin{itemize}
+\item 値の性質 $\fallingdotseq $ 型の意味\\
+ → { \color{red} 値の性質 $\leqq $ 型の意味 }
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{値と型付け}
+
+型とはその型を持つ値の性質を示すもの
+\begin{itemize}
+\item 値の性質 $\fallingdotseq $ 型の意味\\
+ → 値の性質 $\leqq $ 型の意味
+\end{itemize}
+{ \color{red} 幽霊型 - Phantom Type }
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{値と型付け - 幽霊型 - 例 - Maybe.hs}
+
+\begin{lstlisting}
+noInt :: Maybe Int
+noInt =  Nothing
+
+noString :: Maybe String
+noString =  Nothing
+
+-- noInt == noString
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{値と型付け - 幽霊型 - 例 - IntUnit.hs}
+
+\begin{lstlisting}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+質問
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{本日の概要}
+
+\begin{itemize}
+\item 型とプログラム
+\item 関数と構成的プログラム
+\item 値と型付け
 \item { \color{red} 論理パズルの例 }
 \end{itemize}
 
@@ -284,6 +381,20 @@ http://ja.wikipedia.org/wiki/ロジックパズル
  > solve
  > :t solve
 \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+質問
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{参考文献}
+
+\begin{itemize}
+\item Software Foundations http://www.cis.upenn.edu/~bcpierce/sf/
+\item Software Foundations (日本語訳) http://github.com/sfja/sfja
+\end{itemize}
 
 \end{frame}
 
