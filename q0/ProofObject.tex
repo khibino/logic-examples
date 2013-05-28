@@ -17,21 +17,27 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{アジェンダ}
+\frametitle{本日の概要}
 
 \begin{itemize}
-\item プログラムと型
-\item ?
+\item 型とプログラム
+\item 関数と構成的プログラム
+\item 論理パズルの例
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{アジェンダ}
+質問は随時受けつけます
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{本日の概要}
 
 \begin{itemize}
-\item { \color{red} プログラムと型 }
-\item ?
+\item { \color{red} 型とプログラム }
+\item 関数と構成的プログラム
+\item 論理パズルの例
 \end{itemize}
 
 \end{frame}
@@ -82,6 +88,7 @@
 \begin{frame}[fragile]
 \frametitle{型とプログラム - 例 - Even0.hs}
 
+値を検査し、それが正しい場合においてのみ Even を作る
 \begin{lstlisting}
 -- data Maybe a = Just a
 --              | Nothing
@@ -100,6 +107,7 @@ mayEven i
 \begin{frame}[fragile]
 \frametitle{型とプログラム - 例 - Even1.hs}
 
+検査しなくてもEvenを作るくことができる公理系の例
 \begin{lstlisting}
 data Even = Double Int
 
@@ -116,27 +124,33 @@ mayEven i
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{型とプログラム}
+\frametitle{型とプログラム - まとめ}
 
-あらためて型とは\verb|?|
 \begin{itemize}
 \item 型とはその型を持つ値の性質を示すもの
-\end{itemize}
-
-プログラムとは\verb|?|
-\begin{itemize}
-\item 目的の値を作り出すもの
-\end{itemize}
-
-正しいプログラムは\\正しく型が付いた値を作り出す
-\begin{itemize}
-\item 正しいプログラムは作り出した値の性質を証明する
+\item プログラムとは目的の値を作り出すもの
+\item 正しいプログラムは正しく型が付いた値を作り出し、その性質を証明する
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{型とプログラム}
+ここまでで質問とか
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{本日の概要}
+
+\begin{itemize}
+\item 型とプログラム
+\item { \color{red} 関数と構成的プログラム }
+\item 論理パズルの例
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{関数}
 
 関数とは\verb|?|
 \begin{itemize}
@@ -146,7 +160,7 @@ mayEven i
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{型とプログラム}
+\frametitle{関数}
 
 関数とは\verb|?|
 \begin{itemize}
@@ -158,7 +172,7 @@ mayEven i
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{型とプログラム}
+\frametitle{関数}
 
 関数とは\verb|?|
 \begin{itemize}
@@ -171,15 +185,73 @@ mayEven i
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{型とプログラム - 例 - Even2.hs}
+\frametitle{関数 - 例 - Even2.hs}
 
+さらに別の公理系を考える
+\begin{lstlisting}
+data EvenPrime = Even' Int
+
+zero' :: EvenPrime
+zero' =  Even' 0
+
+plus2' :: EvenPrime -> EvenPrime
+plus2' (Even' i) = Even' (i + 2)
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{関数 - 例 - Even3.hs}
+
+拡張すると、Evenを作り出す加算ができるように
+\begin{lstlisting}
+data Even = Even
+            (EvenPrime -> EvenPrime)
+
+zero :: Even
+zero =  Even id
+
+two :: Even
+two =  Even plus2'
+
+(<+>) :: Even -> Even -> Even
+(Even f) <+> (Even g) = Even (f . g)
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{関数 - 実行してみる}
+
+\begin{lstlisting}
+ % ghci Even4.hs
+\end{lstlisting}
 
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{具体例}
+\frametitle{関数}
 
+\begin{enumerate}
+\item 0 と 2 の繰り返し加算による公理系 (EvenPrime) を定義した
+\item EvenPrime を拡張した Even の定義から、Even と Even の加算が Even になることを導出できた
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]
+質問
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{本日の概要}
+
+\begin{itemize}
+\item 型とプログラム
+\item 関数と構成的プログラム
+\item { \color{red} 論理パズルの例 }
+\end{itemize}
 
 \end{frame}
 
