@@ -29,7 +29,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-質問は随時受けつけます
+質問はいつでもどうぞ
 \end{frame}
 
 \begin{frame}[fragile]
@@ -46,7 +46,7 @@
 
 \begin{frame}[fragile]
 \frametitle{型とプログラム}
-あらためて型とは\verb|?|
+型とは\verb|?|
 \begin{itemize}
 \item { \color{red} 型とはその型を持つ値の性質を示すもの }
 \end{itemize}
@@ -55,7 +55,7 @@
 \begin{frame}[fragile]
 \frametitle{型とプログラム}
 
-あらためて型とは\verb|?|
+型とは\verb|?|
 \begin{itemize}
 \item 型とはその型を持つ値の性質を示すもの
 \end{itemize}
@@ -70,7 +70,7 @@
 \begin{frame}[fragile]
 \frametitle{型とプログラム}
 
-あらためて型とは\verb|?|
+型とは\verb|?|
 \begin{itemize}
 \item 型とはその型を持つ値の性質を示すもの
 \end{itemize}
@@ -183,7 +183,7 @@ mayEven i
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{関数}
+\frametitle{関数と構成的プログラム}
 
 関数とは\verb|?|
 \begin{itemize}
@@ -193,7 +193,7 @@ mayEven i
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{関数}
+\frametitle{関数と構成的プログラム}
 
 関数とは\verb|?|
 \begin{itemize}
@@ -204,7 +204,7 @@ mayEven i
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{関数}
+\frametitle{関数と構成的プログラム}
 
 関数とは\verb|?|
 \begin{itemize}
@@ -269,12 +269,22 @@ two =  Even plus2'
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{関数}
+\frametitle{関数と構成的プログラム \\- コード例および実習まとめ}
 
 \begin{enumerate}
 \item 0 と 2 の繰り返し加算による公理系 (EvenPrime) を定義した
 \item EvenPrime を拡張した Even の定義から、Even と Even の加算が Even になることを導出できた
 \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{関数と構成的プログラム - まとめ}
+
+\begin{itemize}
+\item 関数とは関数は証明における推論規則
+\item プログラムは推論規則(関数)の組み合わせで証明を構成する
+\end{itemize}
 
 \end{frame}
 
@@ -396,6 +406,17 @@ type Gram = Int' GramUnit
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{値と型付け - まとめ}
+
+値の性質よりも\\
+意味の強い型を付けることができる
+\begin{itemize}
+\item そのような例としては幽霊型がある
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
 質問
 \end{frame}
 
@@ -415,8 +436,16 @@ type Gram = Int' GramUnit
 \frametitle{論理パズル}
 
 http://ja.wikipedia.org/wiki/ロジックパズル
-
 から持ってきた問題
+\\ \hrulefill \\
+{ \small
+3人のそれぞれの発言から、それぞれの今日の昼食を当ててください。ただし、カレーライス、ラーメン、そばのうちから3人とも別々のものを食べました。
+\begin{description}
+\item[トンキチ] …。
+\item[チンペイ] あいつみたいにそばだったら僕は足りないな。
+\item[カンタ] 僕はカレーライスもそばも嫌いなんだ。
+\end{description}
+}
 
 \end{frame}
 
@@ -432,6 +461,10 @@ http://ja.wikipedia.org/wiki/ロジックパズル
 \end{frame}
 
 \begin{frame}[fragile]
+プログラムの解説 - L0.hs
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{論理パズル - 推論規則を利用した解法 - solve.hs}
 
 \begin{lstlisting}
@@ -440,6 +473,20 @@ http://ja.wikipedia.org/wiki/ロジックパズル
  > solve
  > :t solve
 \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+プログラムの解説 - L1.hs, solve.hs
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{論理パズルの例 - まとめ}
+
+\begin{itemize}
+\item 幽霊型をつかい公理と推論規則を定義した
+\item 公理と推論規則から欲しい解を得るプログラムを記述した
+\end{itemize}
 
 \end{frame}
 
