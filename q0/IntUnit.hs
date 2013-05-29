@@ -18,3 +18,14 @@ thirtyGram :: Gram
 thirtyGram =  Int' 30
 
 -- twentyYen <+> thirtyGram
+
+data ImposedUnit = Imposed
+type Imposed = Int' ImposedUnit
+
+impose :: Yen -> Imposed
+impose (Int' i) = Int' (floor $ fromIntegral i * (1.05 :: Rational) )
+
+twentyImposed :: Imposed
+twentyImposed =  impose twentyYen
+
+-- twentyYen <+> twentyImposed
